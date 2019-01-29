@@ -5,7 +5,7 @@
 
 
 	<groupId>io.trxplorer</groupId>
-	<version>master-SNAPSHOT</version>
+	<version>-SNAPSHOT</version>
 	<artifactId>protocol</artifactId>
 
 

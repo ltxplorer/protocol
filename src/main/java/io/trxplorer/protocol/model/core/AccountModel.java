@@ -1,5 +1,6 @@
 package io.trxplorer.protocol.model.core;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -13,9 +14,11 @@ public class AccountModel {
 	
 	private long balance;
 	
-	private List<VoteModel> votes;
+	private long frozenBalance;
 	
-	private List<FrozenModel> frozen;
+	private long frozenBalanceExpiration;
+	
+	private HashMap<String,Long> votes;
 	
 	private long netUsage;
 	
@@ -59,6 +62,22 @@ public class AccountModel {
 	
 	
 	
+	public long getFrozenBalance() {
+		return frozenBalance;
+	}
+
+	public void setFrozenBalance(long frozenBalance) {
+		this.frozenBalance = frozenBalance;
+	}
+
+	public long getFrozenBalanceExpiration() {
+		return frozenBalanceExpiration;
+	}
+
+	public void setFrozenBalanceExpiration(long frozenBalanceExpiration) {
+		this.frozenBalanceExpiration = frozenBalanceExpiration;
+	}
+
 	public Map<String, Long> getAssetMap() {
 		return assetMap;
 	}
@@ -99,20 +118,13 @@ public class AccountModel {
 		this.balance = balance;
 	}
 
-	public List<VoteModel> getVotes() {
+
+	public HashMap<String, Long> getVotes() {
 		return votes;
 	}
 
-	public void setVotes(List<VoteModel> votes) {
+	public void setVotes(HashMap<String, Long> votes) {
 		this.votes = votes;
-	}
-
-	public List<FrozenModel> getFrozen() {
-		return frozen;
-	}
-
-	public void setFrozen(List<FrozenModel> frozen) {
-		this.frozen = frozen;
 	}
 
 	public long getNetUsage() {
