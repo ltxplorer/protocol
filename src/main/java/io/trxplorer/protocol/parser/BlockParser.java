@@ -95,4 +95,16 @@ public class BlockParser {
 		
 	}
 	
+	public static List<TransactionModel> getAllTransactions(List<BlockModel> blocks) {
+		
+		List<TransactionModel> transactions = new ArrayList<>();
+		
+		
+		for(BlockModel b:blocks) {
+			transactions.addAll(b.getTransactions());
+		}
+		
+		return transactions;
+	}
+	
 }
