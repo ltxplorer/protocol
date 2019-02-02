@@ -127,7 +127,7 @@ public class ContractParser {
 	}
 
 
-	private static WitnessUpdateContractModel unpack(WitnessUpdateContract contract) {
+	public static WitnessUpdateContractModel unpack(WitnessUpdateContract contract) {
 		
 		WitnessUpdateContractModel model = new WitnessUpdateContractModel();
 		
@@ -137,7 +137,7 @@ public class ContractParser {
 	}
 
 
-	private static WitnessCreateContractModel unpack(WitnessCreateContract contract) {
+	public static WitnessCreateContractModel unpack(WitnessCreateContract contract) {
 		
 
 		WitnessCreateContractModel model = new WitnessCreateContractModel();
@@ -147,7 +147,7 @@ public class ContractParser {
 	}
 
 
-	private static VoteAssetContractModel unpack(VoteAssetContract contract) {
+	public static VoteAssetContractModel unpack(VoteAssetContract contract) {
 		
 		VoteAssetContractModel model = new VoteAssetContractModel();
 		
@@ -159,7 +159,7 @@ public class ContractParser {
 	}
 
 
-	private static UpdateSettingContractModel unpack(UpdateSettingContract contract) {
+	public static UpdateSettingContractModel unpack(UpdateSettingContract contract) {
 		
 		UpdateSettingContractModel model = new UpdateSettingContractModel();
 		
@@ -170,7 +170,7 @@ public class ContractParser {
 	}
 
 
-	private static UpdateAssetContractModel unpack(UpdateAssetContract contract) {
+	public static UpdateAssetContractModel unpack(UpdateAssetContract contract) {
 		
 		UpdateAssetContractModel model = new UpdateAssetContractModel();
 		
@@ -183,7 +183,7 @@ public class ContractParser {
 	}
 
 
-	private static UnfreezeBalanceContractModel unpack(UnfreezeBalanceContract contract) {
+	public static UnfreezeBalanceContractModel unpack(UnfreezeBalanceContract contract) {
 		
 		UnfreezeBalanceContractModel model = new UnfreezeBalanceContractModel();
 		
@@ -193,7 +193,7 @@ public class ContractParser {
 	}
 
 
-	private static SetAccountIdContractModel unpack(SetAccountIdContract contract) {
+	public static SetAccountIdContractModel unpack(SetAccountIdContract contract) {
 		
 		SetAccountIdContractModel model = new SetAccountIdContractModel();
 		
@@ -203,7 +203,7 @@ public class ContractParser {
 	}
 
 
-	private static ProposalDeleteContractModel unpack(ProposalDeleteContract contract) {
+	public static ProposalDeleteContractModel unpack(ProposalDeleteContract contract) {
 		
 		ProposalDeleteContractModel model = new ProposalDeleteContractModel();
 		
@@ -213,7 +213,7 @@ public class ContractParser {
 	}
 
 
-	private static ProposalApproveContractModel unpack(ProposalApproveContract contract) {
+	public static ProposalApproveContractModel unpack(ProposalApproveContract contract) {
 		
 		ProposalApproveContractModel model = new ProposalApproveContractModel();
 		
@@ -225,7 +225,7 @@ public class ContractParser {
 
 
 
-	private static ParticipateAssetIssueContractModel unpack(ParticipateAssetIssueContract contract) {
+	public static ParticipateAssetIssueContractModel unpack(ParticipateAssetIssueContract contract) {
 		
 		ParticipateAssetIssueContractModel model = new ParticipateAssetIssueContractModel();
 		
@@ -237,7 +237,7 @@ public class ContractParser {
 
 
 
-	private static FreezeBalanceContractModel unpack(FreezeBalanceContract contract) {
+	public static FreezeBalanceContractModel unpack(FreezeBalanceContract contract) {
 		
 		
 		FreezeBalanceContractModel model = new FreezeBalanceContractModel();
@@ -252,7 +252,7 @@ public class ContractParser {
 
 
 
-	private static ExchangeWithdrawContractModel unpack(ExchangeWithdrawContract contract) {
+	public static ExchangeWithdrawContractModel unpack(ExchangeWithdrawContract contract) {
 		
 		ExchangeWithdrawContractModel model = new ExchangeWithdrawContractModel();
 		
@@ -265,7 +265,7 @@ public class ContractParser {
 
 
 
-	private static ExchangeInjectContractModel unpack(ExchangeInjectContract contract) {
+	public static ExchangeInjectContractModel unpack(ExchangeInjectContract contract) {
 		
 		ExchangeInjectContractModel model = new ExchangeInjectContractModel();
 		
@@ -278,7 +278,7 @@ public class ContractParser {
 
 
 
-	private static ExchangeCreateContractModel unpack(ExchangeCreateContract contract) {
+	public static ExchangeCreateContractModel unpack(ExchangeCreateContract contract) {
 		
 		ExchangeCreateContractModel model = new ExchangeCreateContractModel();
 		
@@ -292,7 +292,7 @@ public class ContractParser {
 
 
 
-	private static CreateSmartContractModel unpack(CreateSmartContract contract) {
+	public static CreateSmartContractModel unpack(CreateSmartContract contract) {
 		
 		CreateSmartContractModel model = new CreateSmartContractModel();
 		
@@ -315,7 +315,7 @@ public class ContractParser {
 
 
 
-	private static AssetIssueContractModel unpack(AssetIssueContract contract) {
+	public static AssetIssueContractModel unpack(AssetIssueContract contract) {
 		
 		AssetIssueContractModel model = new AssetIssueContractModel();
 		
@@ -336,11 +336,11 @@ public class ContractParser {
 			fslist.add(fsmodel);
 		}
 		model.setFrozenSupply(fslist);
-		//model.setId(contract.get);
+		model.setId(contract.getId());
 		model.setName(contract.getName().toStringUtf8());
 		model.setNum(contract.getNum());
 		model.setOrder(contract.getOrder());
-		//model.setPrecision(contract.get);
+		model.setPrecision(contract.getPrecision());
 		model.setPublicFreeAssetNetLimit(contract.getPublicFreeAssetNetLimit());
 		model.setPublicFreeAssetNetUsage(contract.getPublicFreeAssetNetUsage());
 		model.setPublicLatestFreeNetTime(contract.getPublicLatestFreeNetTime());
@@ -353,7 +353,7 @@ public class ContractParser {
 		return model;
 	}
 
-	private static AccountUpdateContractModel unpack(AccountUpdateContract contract) {
+	public static AccountUpdateContractModel unpack(AccountUpdateContract contract) {
 		
 		AccountUpdateContractModel model = new AccountUpdateContractModel();
 		
@@ -362,7 +362,7 @@ public class ContractParser {
 		return model;
 	}
 
-	private static AccountCreateContractModel unpack(AccountCreateContract contract) {
+	public static AccountCreateContractModel unpack(AccountCreateContract contract) {
 		
 		AccountCreateContractModel model = new AccountCreateContractModel();
 		
@@ -372,7 +372,7 @@ public class ContractParser {
 		return model;
 	}
 
-	private static TransferAssetContractModel unpack(TransferAssetContract contract) {
+	public static TransferAssetContractModel unpack(TransferAssetContract contract) {
 
 		TransferAssetContractModel model = new TransferAssetContractModel();
 		
@@ -383,7 +383,7 @@ public class ContractParser {
 		return model;
 	}
 
-	private static TransferContractModel unpack(TransferContract contract) {
+	public static TransferContractModel unpack(TransferContract contract) {
 		
 		TransferContractModel model = new TransferContractModel();
 		
@@ -393,7 +393,7 @@ public class ContractParser {
 		return model;
 	}
 	
-	private static TriggerSmartContractModel unpack(TriggerSmartContract contract) {
+	public static TriggerSmartContractModel unpack(TriggerSmartContract contract) {
 		
 		TriggerSmartContractModel model = new TriggerSmartContractModel();
 		
@@ -405,7 +405,7 @@ public class ContractParser {
 		return model;
 	}
 	
-	private static VoteWitnessContractModel unpack(VoteWitnessContract contract) {
+	public static VoteWitnessContractModel unpack(VoteWitnessContract contract) {
 		
 		VoteWitnessContractModel model = new VoteWitnessContractModel();
 		
@@ -433,7 +433,7 @@ public class ContractParser {
 		return model;
 	}
 	
-	private static ExchangeTransactionContractModel unpack(ExchangeTransactionContract contract) {
+	public static ExchangeTransactionContractModel unpack(ExchangeTransactionContract contract) {
 		
 		ExchangeTransactionContractModel model = new ExchangeTransactionContractModel();
 		

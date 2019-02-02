@@ -1,5 +1,9 @@
 package io.trxplorer.protocol.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class TransactionModel {
 
 	private String hash;
@@ -12,6 +16,7 @@ public class TransactionModel {
 	
 	private String to;
 	
+	@JsonDeserialize(using=TimestampDeserializer.class)
 	private long timestamp;
 	
 	private int type;

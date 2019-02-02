@@ -1,5 +1,7 @@
 package io.trxplorer.protocol.model;
 
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+
 public class TransferModel {
 
 	private String hash;
@@ -14,6 +16,7 @@ public class TransferModel {
 	
 	private int type;
 	
+	@JsonDeserialize(using=TimestampDeserializer.class)
 	private long timestamp;
 	
 	public String getHash() {

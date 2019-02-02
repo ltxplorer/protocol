@@ -3,20 +3,28 @@ package io.trxplorer.protocol.model;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class BlockModel {
 
 	private long height;
 	
 	private String hash;
 	
+	@JsonIgnore
 	private String parentHash;
 	
 	private String witness;
 	
+	@JsonIgnore
 	private List<TransactionModel> transactions;
 	
 	private int txCount;
 	
+	@JsonDeserialize(using=TimestampDeserializer.class)
 	private long timestamp;
 	
 	private int size;
