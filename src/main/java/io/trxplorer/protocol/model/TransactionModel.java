@@ -1,5 +1,7 @@
 package io.trxplorer.protocol.model;
 
+import org.tron.protos.Protocol.Transaction.Contract.ContractType;
+
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 
@@ -110,6 +112,9 @@ public class TransactionModel {
 		this.timestamp = timestamp;
 	}
 	
+	public String getTypeLabel() {
+		return ContractType.forNumber(this.type).toString(); 
+	}
 	
 	
 	
