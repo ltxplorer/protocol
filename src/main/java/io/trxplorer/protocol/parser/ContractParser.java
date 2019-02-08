@@ -349,7 +349,8 @@ public class ContractParser {
 		model.setTrxNum(contract.getTrxNum());
 		model.setUrl(contract.getUrl().toStringUtf8());
 		model.setVoteScore(contract.getVoteScore());
-		
+		model.setFrom(Wallet.encode58Check(contract.getOwnerAddress().toByteArray()));
+
 		return model;
 	}
 

@@ -1,4 +1,4 @@
-package io.trxplorer.protocol.model;
+package io.trxplorer.protocol.model.serializer;
 
 import java.io.IOException;
 import java.text.ParseException;

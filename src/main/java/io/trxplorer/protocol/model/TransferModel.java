@@ -2,6 +2,8 @@ package io.trxplorer.protocol.model;
 
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 
+import io.trxplorer.protocol.model.serializer.TimestampDeserializer;
+
 public class TransferModel {
 
 	private String hash;

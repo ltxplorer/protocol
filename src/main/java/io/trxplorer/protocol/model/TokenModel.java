@@ -1,14 +1,18 @@
 package io.trxplorer.protocol.model;
 
-import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 
 import io.trxplorer.protocol.model.contract.AssetIssueContractModel;
 import io.trxplorer.protocol.model.contract.CreateSmartContractModel;
 import io.trxplorer.protocol.model.contract.FrozenSupply;
+import io.trxplorer.protocol.model.serializer.FrozenSupplySerializer;
+import io.trxplorer.protocol.model.serializer.TimestampDeserializer;
 
 public class TokenModel {
 	
@@ -33,9 +37,11 @@ public class TokenModel {
 	@JsonInclude(Include.NON_DEFAULT)
 	private long trxNum;
 	
+	@JsonDeserialize(using=TimestampDeserializer.class)
 	@JsonInclude(Include.NON_DEFAULT)
 	private long startTime;
 	
+	@JsonDeserialize(using=TimestampDeserializer.class)
 	@JsonInclude(Include.NON_DEFAULT)
 	private long endTime;
 	
@@ -54,8 +60,10 @@ public class TokenModel {
 	private Map<String,String> socialMeta;
 	
 	@JsonInclude(Include.NON_DEFAULT)
-	private Map<Long,Long> frozenSupply;
-
+	private List<FrozenSupply> frozenSupply;
+	
+	@JsonInclude(Include.NON_DEFAULT)
+	private String issuer;
 
 	public Map<String, String> getTsSocialMeta() {
 		return tsSocialMeta;
@@ -63,6 +71,15 @@ public class TokenModel {
 
 	public void setTsSocialMeta(Map<String, String> tsSocialMeta) {
 		this.tsSocialMeta = tsSocialMeta;
+	}
+
+	
+	public String getIssuer() {
+		return issuer;
+	}
+
+	public void setIssuer(String issuer) {
+		this.issuer = issuer;
 	}
 
 	public String getId() {
@@ -169,11 +186,11 @@ public class TokenModel {
 		this.socialMeta = socialMeta;
 	}
 
-	public Map<Long, Long> getFrozenSupply() {
+	public List<FrozenSupply> getFrozenSupply() {
 		return frozenSupply;
 	}
 
-	public void setFrozenSupply(Map<Long, Long> frozenSupply) {
+	public void setFrozenSupply(List<FrozenSupply> frozenSupply) {
 		this.frozenSupply = frozenSupply;
 	}
 	
@@ -202,7 +219,9 @@ public class TokenModel {
 		
 		TokenModel result = new TokenModel();
 		
+		result.setIssuer(model.getFrom());
 		result.setId(model.getId());
+		result.setAbbr(model.getAbbr());
 		result.setName(model.getName());
 		result.setDescription(model.getDescription());
 		result.setEndTime(model.getEndTime());
@@ -213,14 +232,7 @@ public class TokenModel {
 		result.setType(0);
 		result.setSupply(model.getTotalSupply());
 		result.setUrl(model.getUrl());
-		
-		if (model.getFrozenSupply()!=null) {
-			HashMap<Long,Long> frozenSupply =  new HashMap<>();		
-			for(FrozenSupply fs : model.getFrozenSupply()) {
-				frozenSupply.put(fs.getFrozenAmount(), fs.getFrozenDays());
-			}
-			result.setFrozenSupply(frozenSupply);
-		}
+		result.setFrozenSupply(model.getFrozenSupply());
 		
 		
 		return result;

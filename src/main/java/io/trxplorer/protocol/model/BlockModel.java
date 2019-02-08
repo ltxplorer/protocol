@@ -7,6 +7,8 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 
+import io.trxplorer.protocol.model.serializer.TimestampDeserializer;
+
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class BlockModel {
 
