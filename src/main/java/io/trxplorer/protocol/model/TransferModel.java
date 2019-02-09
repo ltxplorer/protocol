@@ -18,9 +18,20 @@ public class TransferModel {
 	
 	private int type;
 	
+	private boolean confirmed;
+	
 	@JsonDeserialize(using=TimestampDeserializer.class)
 	private long timestamp;
 	
+	
+	public boolean isConfirmed() {
+		return confirmed;
+	}
+
+	public void setConfirmed(boolean confirmed) {
+		this.confirmed = confirmed;
+	}
+
 	public String getHash() {
 		return hash;
 	}
