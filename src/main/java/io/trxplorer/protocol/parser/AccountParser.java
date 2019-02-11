@@ -1,5 +1,6 @@
 package io.trxplorer.protocol.parser;
 
+import java.math.BigDecimal;
 import java.util.HashMap;
 
 import org.apache.commons.lang3.StringUtils;
@@ -35,8 +36,13 @@ public class AccountParser {
 		result.setNetUsage(netUsage);
 		result.setAssetIssuedId(account.getAssetIssuedID().toStringUtf8());
 		
-		
-		result.setAssetMap(account.getAssetV2Map());
+		HashMap<String,BigDecimal> newAssetMap = new HashMap<>();
+		for(String key:account.getAssetV2Map().keySet()) {
+			
+			newAssetMap.put(key, new BigDecimal(account.getAssetV2Map().get(key)));
+			
+		}
+		result.setAssetMap(newAssetMap);
 		
 		
 		HashMap<String, Long> votes = new HashMap<>();

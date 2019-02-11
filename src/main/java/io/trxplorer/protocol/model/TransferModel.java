@@ -1,5 +1,7 @@
 package io.trxplorer.protocol.model;
 
+import java.math.BigDecimal;
+
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 
 import io.trxplorer.protocol.model.serializer.TimestampDeserializer;
@@ -8,7 +10,7 @@ public class TransferModel {
 
 	private String hash;
 	
-	private long amount;
+	private BigDecimal amount;
 	
 	private String token;
 	
@@ -40,11 +42,11 @@ public class TransferModel {
 		this.hash = hash;
 	}
 	
-	public long getAmount() {
+	public BigDecimal getAmount() {
 		return amount;
 	}
 
-	public void setAmount(long amount) {
+	public void setAmount(BigDecimal amount) {
 		this.amount = amount;
 	}
 

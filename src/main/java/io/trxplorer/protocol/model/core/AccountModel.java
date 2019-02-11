@@ -1,5 +1,6 @@
 package io.trxplorer.protocol.model.core;
 
+import java.math.BigDecimal;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -61,7 +62,7 @@ public class AccountModel {
 	
 	private String codeHash;
 	
-	private Map<String,Long> assetMap;
+	private Map<String,BigDecimal> assetMap;
 	
 	
 	
@@ -81,12 +82,12 @@ public class AccountModel {
 		this.frozenBalanceExpiration = frozenBalanceExpiration;
 	}
 
-	public Map<String, Long> getAssetMap() {
+	public Map<String, BigDecimal> getAssetMap() {
 		return assetMap;
 	}
 
-	public void setAssetMap(Map<String, Long> assetMap) {
-		this.assetMap = assetMap;
+	public void setAssetMap(Map<String, BigDecimal> newAssetMap) {
+		this.assetMap = newAssetMap;
 	}
 
 	public String getAccountName() {
