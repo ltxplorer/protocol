@@ -7,6 +7,7 @@ import org.apache.commons.lang3.StringUtils;
 import org.tron.api.GrpcAPI.AccountResourceMessage;
 import org.tron.core.Wallet;
 import org.tron.protos.Protocol.Account;
+import org.tron.protos.Protocol.Account.Frozen;
 
 import io.trxplorer.protocol.model.core.AccountModel;
 import io.trxplorer.protocol.model.core.AccountResourceModel;
@@ -54,9 +55,19 @@ public class AccountParser {
 		
 		
 		result.setVotes(votes);
+		if (account.getAccountResource()!=null && account.getAccountResource().getFrozenBalanceForEnergy()!=null) {
+			result.setFrozenBalance(account.getAccountResource().getFrozenBalanceForEnergy().getFrozenBalance());
+		}
 		
+
 		if (account.getFrozenList()!=null && account.getFrozenList().size()>0) {
-			result.setFrozenBalance(account.getFrozen(0).getFrozenBalance());
+			
+			long totalFrozen = result.getFrozenBalance(); 
+			
+			for(Frozen f:account.getFrozenList()) {
+				totalFrozen = totalFrozen + f.getFrozenBalance();
+			}
+			result.setFrozenBalance(totalFrozen);
 			result.setFrozenBalanceExpiration(account.getFrozen(0).getExpireTime());
 		}
 		
