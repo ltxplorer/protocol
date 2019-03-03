@@ -39,6 +39,18 @@ public class TransactionInfoModel {
 	private long exchangeWithdrawAnotherAmount;
 	
 	private long exchangeId;
+	
+	private boolean confirmed;
+	
+	
+	
+	public boolean isConfirmed() {
+		return confirmed;
+	}
+
+	public void setConfirmed(boolean confirmed) {
+		this.confirmed = confirmed;
+	}
 
 	public String getId() {
 		return id;
