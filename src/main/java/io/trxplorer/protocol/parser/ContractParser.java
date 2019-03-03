@@ -1,6 +1,7 @@
 package io.trxplorer.protocol.parser;
 
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 
 import org.tron.core.Wallet;
@@ -377,9 +378,9 @@ public class ContractParser {
 
 		TransferAssetContractModel model = new TransferAssetContractModel();
 		
-		model.setAmount(contract.getAmount());
+		model.setAmount(new BigDecimal(contract.getAmount()));
 		model.setAsset(contract.getAssetName().toStringUtf8());
-
+		model.setTo(Wallet.encode58Check(contract.getToAddress().toByteArray()));
 		
 		return model;
 	}
@@ -389,7 +390,7 @@ public class ContractParser {
 		TransferContractModel model = new TransferContractModel();
 		
 		model.setAmount(contract.getAmount());
-		
+		model.setTo(Wallet.encode58Check(contract.getToAddress().toByteArray()));
 		
 		return model;
 	}
