@@ -1,5 +1,7 @@
 package io.trxplorer.protocol.model.contract;
 
+import java.math.BigDecimal;
+
 public class TransferAssetContractModel {
 	
 	private String asset;//was asset name prior to ALLOW_SAME_TOKEN_NAME after becomes asset id 
@@ -8,7 +10,7 @@ public class TransferAssetContractModel {
 	
 	private String to;
 	
-	private long amount;
+	private BigDecimal amount;
 
 	public String getAsset() {
 		return asset;
@@ -34,11 +36,11 @@ public class TransferAssetContractModel {
 		this.to = to;
 	}
 
-	public long getAmount() {
+	public BigDecimal getAmount() {
 		return amount;
 	}
 
-	public void setAmount(long amount) {
+	public void setAmount(BigDecimal amount) {
 		this.amount = amount;
 	}	
 	
