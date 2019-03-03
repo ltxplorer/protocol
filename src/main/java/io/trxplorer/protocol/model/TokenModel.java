@@ -57,7 +57,7 @@ public class TokenModel {
 	private Map<String,String> tsSocialMeta;
 	
 	@JsonInclude(Include.NON_DEFAULT)
-	private Map<String,String> socialMeta;
+	private Map<String,Object> socialMeta;
 	
 	@JsonInclude(Include.NON_DEFAULT)
 	private List<FrozenSupply> frozenSupply;
@@ -178,11 +178,11 @@ public class TokenModel {
 		this.contractAbi = contractAbi;
 	}
 
-	public Map<String, String> getSocialMeta() {
+	public Map<String, Object> getSocialMeta() {
 		return socialMeta;
 	}
 
-	public void setSocialMeta(Map<String, String> socialMeta) {
+	public void setSocialMeta(Map<String, Object> socialMeta) {
 		this.socialMeta = socialMeta;
 	}
 
