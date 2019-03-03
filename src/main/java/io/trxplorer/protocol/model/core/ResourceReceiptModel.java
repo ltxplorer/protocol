@@ -1,5 +1,7 @@
 package io.trxplorer.protocol.model.core;
 
+import org.tron.protos.Protocol.Transaction.Result.contractResult;
+
 public class ResourceReceiptModel {
 	
 	private long energyUsage;
@@ -14,7 +16,7 @@ public class ResourceReceiptModel {
 	
 	private long netFee;
 	
-	private ContractResultModel result;
+	private contractResult result;
 
 	public long getEnergyUsage() {
 		return energyUsage;
@@ -64,11 +66,11 @@ public class ResourceReceiptModel {
 		this.netFee = netFee;
 	}
 
-	public ContractResultModel getResult() {
+	public contractResult getResult() {
 		return result;
 	}
 
-	public void setResult(ContractResultModel result) {
+	public void setResult(contractResult result) {
 		this.result = result;
 	}
 
