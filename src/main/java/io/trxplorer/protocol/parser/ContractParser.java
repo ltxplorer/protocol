@@ -301,13 +301,14 @@ public class ContractParser {
 		SmartContract smartContract = contract.getNewContract();
 		SmartContractModel scontract = new SmartContractModel();
 		
-		
+
 		ABIModel abimodel = new ABIModel();
 		//abimodel.setEntrys(entrys);
  		
 		//scontract.setAbi();
 		scontract.setBytecode(smartContract.getBytecode().toStringUtf8());
 		model.setNewContract(scontract);
+		model.setFrom(Wallet.encode58Check(smartContract.getOriginAddress().toByteArray()));
 		//model.setTokenId(contract);
 		
 		
