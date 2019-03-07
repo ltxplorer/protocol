@@ -30,7 +30,9 @@ public class TokenModel {
 	private long supply;
 	
 	private int precision;
- 
+	
+	private String txHash;
+	
 	@JsonInclude(Include.NON_DEFAULT)
 	private long num;
 	
@@ -65,6 +67,14 @@ public class TokenModel {
 	@JsonInclude(Include.NON_DEFAULT)
 	private String issuer;
 
+	public String getTxHash() {
+		return txHash;
+	}
+	
+	public void setTxHash(String txHash) {
+		this.txHash = txHash;
+	}
+	
 	public Map<String, String> getTsSocialMeta() {
 		return tsSocialMeta;
 	}
@@ -238,17 +248,6 @@ public class TokenModel {
 		return result;
 	}
 	
-	public static TokenModel from(CreateSmartContractModel model) {
-		
-		if (model==null) {
-			return null;
-		}		
-		
-		
-		
-		
-		
-		return null;
-	}
+
 	
 }
