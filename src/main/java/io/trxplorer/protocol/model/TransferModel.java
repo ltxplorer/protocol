@@ -89,6 +89,12 @@ public class TransferModel {
 	public void setType(int type) {
 		this.type = type;
 	}
+
+	@Override
+	public String toString() {
+		return "TransferModel [hash=" + hash + ", amount=" + amount + ", token=" + token + ", from=" + from + ", to="
+				+ to + ", type=" + type + ", confirmed=" + confirmed + ", timestamp=" + timestamp + "]";
+	}
 	
 	
 	

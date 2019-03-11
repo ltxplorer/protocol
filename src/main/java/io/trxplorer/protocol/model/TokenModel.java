@@ -1,8 +1,10 @@
 package io.trxplorer.protocol.model;
 
+import java.math.BigDecimal;
 import java.util.List;
 import java.util.Map;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
@@ -14,6 +16,7 @@ import io.trxplorer.protocol.model.contract.FrozenSupply;
 import io.trxplorer.protocol.model.serializer.FrozenSupplySerializer;
 import io.trxplorer.protocol.model.serializer.TimestampDeserializer;
 
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class TokenModel {
 	
 	private String id;
@@ -27,7 +30,7 @@ public class TokenModel {
 	
 	private int type;
 	
-	private long supply;
+	private BigDecimal supply;
 	
 	private int precision;
 	
@@ -53,6 +56,7 @@ public class TokenModel {
 	@JsonInclude(Include.NON_DEFAULT)
 	private String url;
 	
+	@JsonDeserialize(using=TimestampDeserializer.class)
 	private long created;
 	
 	@JsonInclude(Include.NON_DEFAULT)
@@ -132,11 +136,11 @@ public class TokenModel {
 		this.type = type;
 	}
 
-	public long getSupply() {
+	public BigDecimal getSupply() {
 		return supply;
 	}
 
-	public void setSupply(long supply) {
+	public void setSupply(BigDecimal supply) {
 		this.supply = supply;
 	}
 
@@ -240,7 +244,7 @@ public class TokenModel {
 		result.setNum(model.getNum());
 		result.setTrxNum(model.getTrxNum());
 		result.setType(0);
-		result.setSupply(model.getTotalSupply());
+		result.setSupply(new BigDecimal(model.getTotalSupply()));
 		result.setUrl(model.getUrl());
 		result.setFrozenSupply(model.getFrozenSupply());
 		
