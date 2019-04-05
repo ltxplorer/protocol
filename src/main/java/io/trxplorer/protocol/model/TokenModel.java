@@ -22,7 +22,9 @@ public class TokenModel {
 	private String id;
 	
 	private String name; 
-
+	
+	private String _name;
+	
 	@JsonInclude(Include.NON_DEFAULT)
 	private String abbr;
 	
@@ -102,6 +104,16 @@ public class TokenModel {
 
 	public void setId(String id) {
 		this.id = id;
+	}
+
+	
+	
+	public String get_name() {
+		return _name;
+	}
+
+	public void set_name(String _name) {
+		this._name = _name;
 	}
 
 	public String getName() {
